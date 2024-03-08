@@ -14,3 +14,14 @@ body {
     background-color: var(--white);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.main_task_con {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+}
+
+.task_con {
+    
+}

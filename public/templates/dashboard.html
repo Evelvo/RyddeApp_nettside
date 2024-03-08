@@ -27,20 +27,19 @@
         <form action="/logout" method="POST">
             <button type="submit">Logout</button>
         </form>
-        
-        <h2>Tasks within Your Family:</h2>
-        <ul>
+
+        <div class = "main_task_con">
             <% tasks.forEach(task => { %>
-                <li>
+                <div class = "task_con">
+                    <img src="data:image/jpeg;base64, <%= task.image %>" alt="Task Image" width="100px">
                     <h3><%= task.title %></h3>
                     <p><%= task.description %></p>
                     <p>Price: <%= task.price %></p>
-                    <% if (task.image) { %>
-                        <img src="data:image/jpeg;base64, <%= task.image %>" alt="Task Image" width="100px">
-                    <% } %>
-                </li>
+                </div>
             <% }); %>
-        </ul>
+
+        </div>
+    
     </div>
     <div class = "bottom_nav">
         <div class = bottom_button_con>

@@ -6,8 +6,6 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const sharp = require('sharp');
 
-console.log("test");
-
 const storage = multer.memoryStorage({
     fileFilter: (req, file, cb) => {
         if (file.mimetype.startsWith('image/')) {
@@ -17,8 +15,6 @@ const storage = multer.memoryStorage({
         }
     }
 });
-
-console.log("test");
 
 const upload = multer({
     storage: storage,
@@ -47,13 +43,11 @@ app.post('/addtask', isAuthenticated, upload.single('image'), async (req, res) =
 
     let imageData = req.file.buffer;
 
-    console.log(imageData.length);
     let resizedImageBuffer = await sharp(req.file.buffer)
         .resize({ fit: 'inside', width: 600, height: 300 })
         .jpeg({ quality: 70 })
         .toBuffer();
 
-    console.log(resizedImageBuffer.length);
     while (resizedImageBuffer.length > 600000) {
         imageData = await sharp(resizedImageBuffer)
             .jpeg({ quality: 60 })
