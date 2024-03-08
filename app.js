@@ -208,9 +208,18 @@ app.post('/logout', (req, res) => {
 });
 
 app.get('/addtask', isAuthenticated, (req, res) => {
-    res.render('addtask.html');
+    const currentUser = req.session.user;
+    res.render('addtask.html', { username: currentUser });
 });
 
+
+app.get('/ikke_ferdig', isAuthenticated, (req, res) => {
+    res.render('ikke_ferdig.html');
+});
+
+app.get('/', (req, res) => {
+    res.render('index.html');
+});
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);

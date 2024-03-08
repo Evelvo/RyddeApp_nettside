@@ -1,0 +1,122 @@
+:root {
+    --dark_blue: #00242c;
+    --blue: #009bbd;
+    --grey: #999999;
+    --white: #ffffff;
+    --black: #292929;
+    --contrast_grey: #D9D9D9;
+    --contrast_grey: #D9D9D9;
+
+    --border_rad: 15px;
+}
+
+body {
+    margin: 0;
+    background-color: var(--white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main_page_con {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main_page_ext {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#price_circle_task {
+    width: 30px;
+    height: 30px;
+    background-color: var(--blue);
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.price_text_con_task {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.main_page_con > h1{
+    color: var(--grey)
+}
+
+#title_input {
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: var(--contrast_grey);
+    color: var(--black);
+    border: 2px solid var(--grey);
+    font-size: 1.06em;
+    font-weight: bold;
+}
+
+#beskrivelse_input {
+    width: 90%;
+    height: 100px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: var(--contrast_grey);
+    color: var(--black);
+    border: 2px solid var(--grey);
+    font-size: 1.06em;
+    font-weight: bold;
+}
+
+#price_input {
+    width: 70%;
+    height: 30px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: var(--contrast_grey);
+    color: var(--black);
+    border: 2px solid var(--grey);
+    font-size: 1.06em;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+
+/* Hide the default file input */
+input[type="file"] {
+    display: none;
+}
+
+/* Style the custom file upload label */
+.custom-file-upload {
+    display: inline-block;
+    color: var(--blue);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submit_btn {
+    width: 90%;
+    height: 40px;
+    text-align: left;
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#info_text_familie {
+    color: grey;
+    margin-top: 20px;
+}
+
+#info_text_familie >a {
+    color: var(--blue);
+    font-weight: 800;
+    text-decoration: none;
+}

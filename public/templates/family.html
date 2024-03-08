@@ -5,27 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Family</title>
     <link rel="stylesheet" href="../static/css/family.css">
+    <link rel="stylesheet" href="../static/css/default_layout.css">
 </head>
 <body>
-    <div class="top_nav"></div>
-    <h1>Welcome, <%= username %></h1>
-    <h2>Your Family Code: <%= familyCode %></h2>
-    
-    <h2>Family Members:</h2>
-    <ul>
-        <% familyMembers.forEach(member => { %>
-            <li><%= member %></li>
-        <% }); %>
-    </ul>
+    <div class="top_nav">
+        <div class = "profile_con">
+            <a href="/family"><div class = "profile_pic_con">
+                <img src="../static/no_profile_pic.png" alt="">
+            </div></a>
+            <p><%= username %></p>
+        </div>
+        <div class = "price_con">
+            <div class = price_text_con>
+                <div id = "price_circle"></div>
+                <p>50 000</p>
+            </div>
+        </div>
+    </div>
+    <div class = "main_page">
+        <div class = "main_page_ext">
+            <div class = "main_page_con">
+                <h2 id = "family_code">Din familie kode: <span><%= familyCode %></span></h2>
+                
+                <h2 id = "members_title" >Medlemmer:</h2>
+                <div class = "members_con">
+                    <ul>
+                        <% familyMembers.forEach(member => { %>
+                            <li><%= member %></li>
+                        <% }); %>
+                    </ul>
+                </div>
 
-    <h2>Change Family Code:</h2>
-    <form action="/changeFamilyCode" method="POST">
-        <input type="text" name="familyCode" placeholder="Enter new family code">
-        <button type="submit">Change Family Code</button>
-    </form>
+                <h2 id = "change_title">Endre familie kode:</h2>
+                <form action="/changeFamilyCode" method="POST">
+                    <div class = "change_family_con">
+                        <input id = "code_input" type="text" name="familyCode" placeholder="Kode">
+                        <button id = "code_btn" type="submit">Endre</button>
+                    </div>
+                </form>
 
-    <form action="/logout" method="POST">
-        <button type="submit">Logout</button>
-    </form>
+                <form action="/logout" method="POST">
+                    <button id =  "logout_text" type="submit">Logg ut</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class = "bottom_nav">
+        <div class = bottom_button_con>
+            <a href="/"><img class = "bottom_button_icon" src="../static/home.png" alt=""></a>
+        </div>
+        <div class = bottom_button_con>
+            <a href="/dashboard"><img class = "bottom_button_icon" src="../static/task.png" alt=""></a>
+        </div>
+        <div class = bottom_button_con>
+            <a href="/ikke_ferdig"><img class = "bottom_button_icon" src="../static/shop.png" alt=""></a>
+        </div>
+    </div>
 </body>
 </html>

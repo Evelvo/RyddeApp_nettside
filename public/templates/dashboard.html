@@ -10,9 +10,9 @@
 <body>
     <div class="top_nav">
         <div class = "profile_con">
-            <div class = "profile_pic_con">
+            <a href="/family"><div class = "profile_pic_con">
                 <img src="../static/no_profile_pic.png" alt="">
-            </div>
+            </div></a>
             <p><%= username %></p>
         </div>
         <div class = "price_con">
@@ -23,33 +23,47 @@
         </div>
     </div>
     <div class = "main_page">
-
-        <form action="/logout" method="POST">
-            <button type="submit">Logout</button>
-        </form>
+        <div class = "title_top_con">
+            <div class = "title_top_con_grid">
+                <div class = "title_con_task">
+                    <p>Oppdrag</p>
+                </div>
+                <div class = "title_con_task_btn">
+                    <a href="/addtask">Legg til oppdrag</a>
+                </div>
+            </div>
+        </div>
 
         <div class = "main_task_con">
-            <% tasks.forEach(task => { %>
-                <div class = "task_con">
-                    <img src="data:image/jpeg;base64, <%= task.image %>" alt="Task Image" width="100px">
-                    <h3><%= task.title %></h3>
-                    <p><%= task.description %></p>
-                    <p>Price: <%= task.price %></p>
-                </div>
-            <% }); %>
+            <div class = "main_task_con_ext">
+                <% tasks.forEach(task => { %>
+                    <div class = "task_con">
+                        <div class = "img_con">
+                            <img src="data:image/jpeg;base64, <%= task.image %>" alt="Task Image">
+                        </div>
+                        <div class = "info_con">
+                            <p><%= task.title %></p>
+                            <div class = price_text_con_task>
+                                <div id = "price_circle_task"></div>
+                                <p><%= task.price %></p>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
 
         </div>
     
     </div>
     <div class = "bottom_nav">
         <div class = bottom_button_con>
-            <img class = "bottom_button_icon" src="../static/home.png" alt="">
+            <a href="/"><img class = "bottom_button_icon" src="../static/home.png" alt=""></a>
         </div>
         <div class = bottom_button_con>
-            <img class = "bottom_button_icon" src="../static/task.png" alt="">
+            <a href="/dashboard"><img class = "bottom_button_icon" src="../static/task.png" alt=""></a>
         </div>
         <div class = bottom_button_con>
-            <img class = "bottom_button_icon" src="../static/shop.png" alt="">
+            <a href="/ikke_ferdig"><img class = "bottom_button_icon" src="../static/shop.png" alt=""></a>
         </div>
     </div>
 </body>

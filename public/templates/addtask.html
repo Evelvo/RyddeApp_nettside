@@ -4,18 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
+    <link rel="stylesheet" href="../static/css/default_layout.css">
+    <link rel="stylesheet" href="../static/css/addtask.css">
 </head>
 <body>
-    <div class="top_nav"></div>
-    <h1>Add Task</h1>
-    <form action="/addtask" method="POST" enctype="multipart/form-data">
-        <input type="text" name="title" placeholder="Title" required>
-        <textarea name="description" placeholder="Description" required></textarea>
-        <input type="number" name="price" placeholder="Price" required>
-        <input type="file" id="image" name="image" accept="image/*" required>
-        <button type="submit">Submit</button>
-    </form>
-    
-    <a href="/dashboard">Back to Dashboard</a>
+    <div class="top_nav">
+        <div class = "profile_con">
+            <a href="/family"><div class = "profile_pic_con">
+                <img src="../static/no_profile_pic.png" alt="">
+            </div></a>
+            <p><%= username %></p>
+        </div>
+        <div class = "price_con">
+            <div class = price_text_con>
+                <div id = "price_circle"></div>
+                <p>50 000</p>
+            </div>
+        </div>
+    </div>
+    <div class = "main_page">
+        <div class = "main_page_ext">
+            <div class = "main_page_con">
+                <h1>Lag et oppdrag</h1>
+                <form action="/addtask" method="POST" enctype="multipart/form-data">
+                    <input id = "title_input" type="text" name="title" placeholder="Tittel" required><br>
+                    <textarea  id = "beskrivelse_input" name="description" placeholder="Beskrivelse" required></textarea><br>
+                    <div class = price_text_con_task>
+                        <div id = "price_circle_task"></div>
+                        <input id = "price_input" type="number" name="price" placeholder="Pris" required>
+                    </div><br>
+                    <label for="image" class="custom-file-upload">Last opp et bilde...</label>
+                    <input type="file" id="image" name="image" accept="image/*" required><br>
+
+                    <button id = "submit_btn" type="submit">Legg til oppdrag</button>
+
+                    <p id = "info_text_familie">Alle i din <a href="/family">familie</a> kan se dette opdraget.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class = "bottom_nav">
+        <div class = bottom_button_con>
+            <a href="/"><img class = "bottom_button_icon" src="../static/home.png" alt=""></a>
+        </div>
+        <div class = bottom_button_con>
+            <a href="/dashboard"><img class = "bottom_button_icon" src="../static/task.png" alt=""></a>
+        </div>
+        <div class = bottom_button_con>
+            <a href="/ikke_ferdig"><img class = "bottom_button_icon" src="../static/shop.png" alt=""></a>
+        </div>
+    </div>
 </body>
 </html>
