@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family</title>
+    <link rel="stylesheet" href="../static/css/family.css">
+</head>
+<body>
+    <div class="top_nav"></div>
+    <h1>Welcome, <%= username %></h1>
+    <h2>Your Family Code: <%= familyCode %></h2>
+    
+    <h2>Family Members:</h2>
+    <ul>
+        <% familyMembers.forEach(member => { %>
+            <li><%= member %></li>
+        <% }); %>
+    </ul>
+
+    <h2>Change Family Code:</h2>
+    <form action="/changeFamilyCode" method="POST">
+        <input type="text" name="familyCode" placeholder="Enter new family code">
+        <button type="submit">Change Family Code</button>
+    </form>
+
+    <form action="/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

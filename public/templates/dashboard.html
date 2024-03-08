@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../static/css/dashboad.css">
+    <link rel="stylesheet" href="../static/css/default_layout.css">
+</head>
+<body>
+    <div class="top_nav">
+        <div class = "profile_con">
+            <div class = "profile_pic_con">
+                <img src="../static/no_profile_pic.png" alt="">
+            </div>
+            <p><%= username %></p>
+        </div>
+        <div class = "price_con">
+            <div class = price_text_con>
+                <div id = "price_circle"></div>
+                <p>50 000</p>
+            </div>
+        </div>
+    </div>
+    <div class = "main_page">
+
+        <form action="/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+        
+        <h2>Tasks within Your Family:</h2>
+        <ul>
+            <% tasks.forEach(task => { %>
+                <li>
+                    <h3><%= task.title %></h3>
+                    <p><%= task.description %></p>
+                    <p>Price: <%= task.price %></p>
+                    <% if (task.image) { %>
+                        <img src="data:image/jpeg;base64, <%= task.image %>" alt="Task Image" width="100px">
+                    <% } %>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+    <div class = "bottom_nav">
+        <div class = bottom_button_con>
+            <img class = "bottom_button_icon" src="../static/home.png" alt="">
+        </div>
+        <div class = bottom_button_con>
+            <img class = "bottom_button_icon" src="../static/task.png" alt="">
+        </div>
+        <div class = bottom_button_con>
+            <img class = "bottom_button_icon" src="../static/shop.png" alt="">
+        </div>
+    </div>
+</body>
+</html>
